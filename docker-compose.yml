@@ -1,0 +1,12 @@
+services:
+  wrapped:
+    build: .
+    # image: ghcr.io/<org>/m365-wrapped:0.1.0   # set once the GitHub org is decided
+    env_file: .env
+    volumes:
+      - ./out:/app/out
+      # Certificate auth (optional): mount the dir holding your PEM private key read-only,
+      # then set CLIENT_CERT_PATH to its path inside the container. Example:
+      # - ./certs:/certs:ro                     # and CLIENT_CERT_PATH=/certs/key.pem
+      # - ./config.yaml:/app/config.yaml:ro     # optional: copy config.example.yaml first
+    command: ["run", "--period", "D180", "--out", "/app/out"]

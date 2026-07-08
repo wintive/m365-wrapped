@@ -1,0 +1,5 @@
+# Optional overrides. Copy to config.yaml. Secrets stay in .env, never here.
+period: D180        # D7 | D30 | D90 | D180  (Graph usage reports cap out at 180 days)
+anonymize: false    # cards are org-aggregate regardless; this only relabels the tenant
+brand_logo: null    # path to a PNG to co-brand cards (MSP / client-QBR mode)
+out_dir: ./out
